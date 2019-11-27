@@ -9,7 +9,7 @@
         <!--Items-->
         <scene sceneID="9cK-0d-4Ye">
             <objects>
-                <tableViewController id="2k5-RK-Tf5" customClass="categoryViewController" customModule="Checklist_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2k5-RK-Tf5" customClass="TodoListViewController" customModule="Checklist_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z3T-67-vwt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,14 +37,23 @@
                             <outlet property="delegate" destination="2k5-RK-Tf5" id="Vv7-mR-9tw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Items" id="AJ4-vf-5ll">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iqd-Nv-g8b">
+                    <toolbarItems>
+                        <barButtonItem systemItem="add" id="LLy-5U-rpy">
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <connections>
-                                <action selector="addButtonPressed:" destination="2k5-RK-Tf5" id="tiB-uV-o09"/>
+                                <action selector="addButtonPressed:" destination="C5z-s0-REH" id="BwV-d0-Cxi"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Items" id="AJ4-vf-5ll" colorLabel="IBBuiltInLabel-Gray">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4aS-6l-h0h">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="2k5-RK-Tf5" id="plv-yk-kNn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vz-ij-fHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
