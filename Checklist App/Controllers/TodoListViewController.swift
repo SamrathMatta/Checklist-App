@@ -81,42 +81,41 @@ class TodoListViewController: UITableViewController {
     
     // MARK - Add New Items
     
-    
 
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addButtonPressedItems(_ sender: UIBarButtonItem) {
         
-        var textField = UITextField()
-        
-        let alert = UIAlertController(title: "Add New Task", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Add Task", style: .default) { (action) in
+          var textfield = UITextField()
             
-            if let currentCategory = self.selectedCategory {
-                do {
-                    try self.realm.write {
-                        let newItem = Item()
-                        newItem.title = textField.text!
-                        newItem.dateCreated = Date()
-                        currentCategory.items.append(newItem)
-                    }
-                } catch {
-                    print("Error saving new items \(error)")
+            let alert = UIAlertController(title: "Add New Checklist Item", message: "", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+                
+                if let currentCategory = self.selectedCategory {
+                    do {
+                        try self.realm.write {
+                            let newItem = Item()
+                            newItem.title = textfield.text!
+                            currentCategory.items.append(newItem)
                 }
+                    } catch {
+                        print("Error saving new items, \(error)")
+                    }
+                }
+                
+                self.tableView.reloadData()
+                
+        }
+            
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "Create new item"
+                textfield = alertTextField
+                
             }
             
-            self.tableView.reloadData()
+            alert.addAction(action)
             
-        }
+            present(alert, animated: true, completion: nil)
         
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new item"
-            textField = alertTextField
-        
-        }
-        
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-
     }
     
     

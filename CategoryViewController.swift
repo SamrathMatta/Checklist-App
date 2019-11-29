@@ -71,31 +71,28 @@ class CategoryViewController: UITableViewController {
     
     //MARK: - Add New Categories
     
-    
-    
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addButtonPressedChecklistApp(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
+                              
+                              let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
-        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-
-            let newCategory = Category()
-            newCategory.name = textField.text!
-            
-            self.save(category: newCategory)
-            
-        }
-        
-        alert.addAction(action)
-        
-        alert.addTextField { (field) in
-            textField = field
-            textField.placeholder = "Add a new category"
-        }
-        
-        present(alert, animated: true, completion: nil)
+                              let action = UIAlertAction(title: "Add", style: .default) { (action) in
+                                  
+                                  let newCategory = Category()
+                                  newCategory.name = textField.text!
+                                  self.save(category: newCategory)
+                                  
+                              }
+                              
+                              alert.addAction(action)
+                              
+                              alert.addTextField { (field) in
+                                  textField = field
+                                  textField.placeholder = "Add a new category"
+                              }
+                              
+                              present(alert, animated: true, completion: nil)
         
     }
     

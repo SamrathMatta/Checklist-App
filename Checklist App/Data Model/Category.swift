@@ -13,7 +13,3 @@ class Category: Object {
     @objc dynamic var name : String = ""
     let items = List<Item>()
 }
-
-
-// I'm commiting this
-
